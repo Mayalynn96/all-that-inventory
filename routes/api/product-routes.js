@@ -22,6 +22,15 @@ router.get('/', (req, res) => {
 
 // get one product
 router.get('/:id', (req, res) => {
+  Product.findByPk(req.params.id, {
+    include:[Category,Tag]
+  }).then(data => {
+    if (data) {
+        return res.json(data)
+    } else {
+        res.status(404).send("No such category")
+    }
+})
   // find a single product by its `id`
   // be sure to include its associated Category and Tag data
 });
