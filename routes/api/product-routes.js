@@ -28,7 +28,7 @@ router.get('/:id', (req, res) => {
     if (data) {
       return res.json(data)
     } else {
-      res.status(404).send("No such category")
+      res.status(404).send("No such product")
     }
   })
   // find a single product by its `id`
